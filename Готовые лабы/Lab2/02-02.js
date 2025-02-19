@@ -1,15 +1,15 @@
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
 http.createServer(function (request, response) {
     if (request.method === 'GET' && request.url === '/png') {
-        const fname = './pic.png';
+        const name = './pic.png';
 
-        fs.stat (fname, (error, stat) => {
+        fs.stat (name, (error, stat) => {
             if (error) {
                 console.log('error: ' + error);
             } else {
-                png = fs.readFileSync(fname);
+                let png = fs.readFileSync(name);
                 response.writeHead(200, {'Content-Type': 'image/png', 'Content-Length': stat.size});
                 response.end(png, 'binary');
             }

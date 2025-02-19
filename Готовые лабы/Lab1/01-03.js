@@ -1,4 +1,4 @@
-var http = require('http');
+const http = require('http');
 
 let getHeaders = (request) => { 
     let headers = '';
@@ -18,7 +18,11 @@ http.createServer(function (request, response) {
         })
     response.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
     request.on('end', () => response.end( 
-            '<!DOCTYPE html> <html><head></head>' +
+            '<!DOCTYPE html>' +
+            '<html lang="en">' +
+            '<head>' +
+            '<title>01-03</title>' +
+            '</head>' +
             '<body>' +
             '<h1>Request structure</h1>' +
             '<h2>' + 'Method: ' + request.method + '</h2>' +
@@ -28,8 +32,7 @@ http.createServer(function (request, response) {
             '<h2>' + 'Body: ' + body + '</h2>' +
             '</body>' +
             '</html>'
-        )
-    )
+    ));
 }).listen(3000);
 
 console.log("Server running at http://localhost:3000/");

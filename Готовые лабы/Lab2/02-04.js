@@ -1,14 +1,14 @@
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
 http.createServer(function (request, response) { 
     if (request.url === '/api/name') {
         response.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
         response.end('Zhuk Svetlana Sergeevna');
     } else if (request.url === '/xmlhttprequest'){
-        const fname = './xmlhttprequest.html';
+        const name = './xmlhttprequest.html';
 
-        fs.readFile (fname, (error, data) => {
+        fs.readFile (name, (error, data) => {
             if (error) {
                 console.log('error: ' + error);
             } else {

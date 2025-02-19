@@ -1,5 +1,4 @@
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
 
 http.createServer(function(request, response) {
     if(request.method === 'GET' && request.url === '/api/name') {
